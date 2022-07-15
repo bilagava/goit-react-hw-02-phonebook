@@ -4,11 +4,11 @@ import styles from './styles.module.css';
 
 const ContactsList = ({ contacts, onClick }) => {
   return (
-    <ul>
+    <ul className={styles.list}>
       {contacts.map(({ name, id, number }) => (
         <li key={id}>
           {name}: {number}
-          <button className={styles.button} onClick={() => onClick(id)}>
+          <button className={styles.btn} onClick={() => onClick(id)}>
             Delete
           </button>
         </li>

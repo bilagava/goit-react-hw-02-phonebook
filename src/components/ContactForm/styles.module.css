@@ -1,7 +1,8 @@
 .form {
-  border: 1px solid black;
-  width: 400px;
+  max-width: 350px;
+  border-radius: 5px;
   padding: 10px;
+  background-color: yellow;
 }
 
 .label {
@@ -11,11 +12,21 @@
 }
 
 .input {
-  width: 100px;
+  width: 250px;
   margin-top: 5px;
 }
 
 .btn {
   display: block;
   cursor: pointer;
+  width: 100px;
+  color: yellow;
+  background-color: blue;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  color: blue;
+  background-color: tomato;
+  box-shadow: 5px 5px 5px blue;
 }
