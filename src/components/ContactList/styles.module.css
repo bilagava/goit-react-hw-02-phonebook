@@ -1,18 +1,3 @@
-.btn {
-  cursor: pointer;
-  margin-left: 10px;
-  margin-bottom: 10px;
-  color: yellow;
-  background-color: blue;
-  border-radius: 5px;
-}
-
-.btn:hover {
-  color: blue;
-  background-color: tomato;
-  box-shadow: 5px 5px 5px blue;
-}
-
 .list {
   max-width: 350px;
   border-radius: 5px;

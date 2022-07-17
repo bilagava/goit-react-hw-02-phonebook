@@ -2,7 +2,7 @@ import React from 'react';
 import { nanoid } from 'nanoid';
 import ContactsList from 'components/ContactList';
 import ContactForm from 'components/ContactForm';
-import Filter from 'components/Filter';
+import Contactsfilter from 'components/Contactsfilter';
 import styles from './styles.module.css';
 
 export class App extends React.Component {
@@ -53,7 +53,10 @@ export class App extends React.Component {
         <h1 className={styles.title}>Phoneboock</h1>
         <ContactForm onSubmit={this.addContact} arr={contacts} />
         <h2 className={styles.title}>Contacts</h2>
-        <Filter onChangeFilter={this.changeFilter} valueFilter={filter} />
+        <Contactsfilter
+          onChangeFilter={this.changeFilter}
+          valueFilter={filter}
+        />
         {contacts.length > 0 && (
           <ContactsList
             onClick={this.deleteContact}

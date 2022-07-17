@@ -8,22 +8,22 @@ export class ContactForm extends React.Component {
     number: '',
   };
 
-  handleNameChange = evt => {
+  hadleNameChange = e => {
     this.setState({
-      name: evt.currentTarget.value,
+      name: e.currentTarget.value,
     });
   };
 
-  handleNumberChange = evt => {
+  handleNumberChange = e => {
     this.setState({
-      number: evt.currentTarget.value,
+      number: e.currentTarget.value,
     });
   };
 
-  alertSameName() {
+  checkName() {
     const { name, number } = this.state;
-    const nameArr = this.props.arr.map(ar => ar.name.toLowerCase());
-    if (nameArr.includes(name.toLowerCase())) {
+    const nameArray = this.props.arr.map(arr => arr.name.toLowerCase());
+    if (nameArray.includes(name.toLowerCase())) {
       alert(`${name} is alredy in contacts`);
     } else {
       this.props.onSubmit(name, number);
@@ -31,9 +31,9 @@ export class ContactForm extends React.Component {
     }
   }
 
-  handleFormSubmit = evt => {
-    evt.preventDefault();
-    this.alertSameName();
+  handleFormSubmit = e => {
+    e.preventDefault();
+    this.checkName();
   };
 
   render() {
@@ -43,7 +43,7 @@ export class ContactForm extends React.Component {
           Name
           <input
             value={this.state.name}
-            onChange={this.handleNameChange}
+            onChange={this.hadleNameChange}
             className={styles.input}
             type="text"
             name="name"
@@ -74,6 +74,8 @@ export class ContactForm extends React.Component {
   }
 }
 
+export default ContactForm;
+
 ContactForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   arr: PropTypes.arrayOf(
@@ -84,5 +86,3 @@ ContactForm.propTypes = {
     }).isRequired
   ).isRequired,
 };
-
-export default ContactForm;
