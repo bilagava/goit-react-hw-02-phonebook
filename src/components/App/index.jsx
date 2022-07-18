@@ -2,7 +2,7 @@ import React from 'react';
 import { nanoid } from 'nanoid';
 import ContactsList from 'components/ContactList';
 import ContactForm from 'components/ContactForm';
-import Contactsfilter from 'components/Contactsfilter';
+import Filter from 'components/Filter';
 import styles from './styles.module.css';
 
 export class App extends React.Component {
@@ -38,10 +38,10 @@ export class App extends React.Component {
     this.setState({ filter: evt.currentTarget.value });
   };
 
-  searchName = () => {
-    const lowerCase = this.state.filter.toLowerCase();
+  filterContacts = () => {
+    const normalizedFilter = this.state.filter.toLowerCase();
     return this.state.contacts.filter(contact =>
-      contact.name.toLowerCase().includes(lowerCase)
+      contact.name.toLowerCase().includes(normalizedFilter)
     );
   };
 
@@ -53,14 +53,11 @@ export class App extends React.Component {
         <h1 className={styles.title}>Phoneboock</h1>
         <ContactForm onSubmit={this.addContact} arr={contacts} />
         <h2 className={styles.title}>Contacts</h2>
-        <Contactsfilter
-          onChangeFilter={this.changeFilter}
-          valueFilter={filter}
-        />
+        <Filter onChangeFilter={this.changeFilter} valueFilter={filter} />
         {contacts.length > 0 && (
           <ContactsList
-            onClick={this.deleteContact}
-            contacts={this.searchName()}
+            deleteContact={this.deleteContact}
+            contacts={this.filterContacts()}
           />
         )}
       </div>

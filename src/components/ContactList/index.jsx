@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ContactListItem from './ContactListItem';
 import styles from './styles.module.css';
 
-const ContactsList = ({ contacts, onClick }) => {
+const ContactsList = ({ contacts, deleteContact }) => {
   return (
     <ul className={styles.list}>
       {contacts.map(({ name, number, id }) => (
@@ -11,7 +11,7 @@ const ContactsList = ({ contacts, onClick }) => {
           key={id}
           name={name}
           number={number}
-          onClick={() => onClick(id)}
+          deleteContact={() => deleteContact(id)}
         />
       ))}
       ;
@@ -20,7 +20,7 @@ const ContactsList = ({ contacts, onClick }) => {
 };
 
 ContactsList.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  deleteContact: PropTypes.func.isRequired,
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

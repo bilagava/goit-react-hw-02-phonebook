@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.module.css';
 
-const Contactsfilter = ({ onChangeFilter, valueFilter }) => {
+const Filter = ({ onChangeFilter, valueFilter }) => {
   return (
     <label className={styles.label}>
       Find contacts by name
@@ -16,9 +16,9 @@ const Contactsfilter = ({ onChangeFilter, valueFilter }) => {
   );
 };
 
-Contactsfilter.propTypes = {
+Filter.propTypes = {
   onChangeFilter: PropTypes.func.isRequired,
   valueFilter: PropTypes.string.isRequired,
 };
 
-export default Contactsfilter;
+export default Filter;
