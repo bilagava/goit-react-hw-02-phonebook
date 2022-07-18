@@ -14,7 +14,6 @@ const ContactsList = ({ contacts, deleteContact }) => {
           deleteContact={() => deleteContact(id)}
         />
       ))}
-      ;
     </ul>
   );
 };
